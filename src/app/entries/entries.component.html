@@ -1,0 +1,12 @@
+<div
+  *ngIf="authenticated && entries"
+  infiniteScroll
+  [infiniteScrollDistance]="1"
+  (scrolled)="onScroll()"
+>
+  <div *ngFor="let entry of entries">
+    <mat-card class="card" routerLink="/{{ entry.uid }}">
+      <quill-view content="{{ entry.body }}"></quill-view>
+    </mat-card>
+  </div>
+</div>

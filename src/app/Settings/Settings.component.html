@@ -1,0 +1,10 @@
+<div class="container" fxLayout fxLayoutAlign="center">
+  <mat-card class="card" style="text-align: center;">
+    <app-theme-picker></app-theme-picker>
+    <div *ngIf="authenticated">
+      <button mat-button routerLink="/login" (click)="signOut()">
+        Signout
+      </button>
+    </div>
+  </mat-card>
+</div>

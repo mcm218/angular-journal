@@ -1,0 +1,93 @@
+<div
+  class="container"
+  fxLayout
+  fxLayoutAlign="center"
+  style="text-align: center;"
+>
+  <mat-card class="card">
+    <form
+      *ngIf="loginMode"
+      [formGroup]="loginForm"
+      (ngSubmit)="tryLogin(loginForm.value)"
+    >
+      <mat-form-field>
+        <input
+          matInput
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Email"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </mat-form-field>
+      <p style="color:red;">{{ errorMessage }}</p>
+      <button mat-button type="submit">Submit</button>
+    </form>
+    <form
+      *ngIf="!loginMode"
+      [formGroup]="signupForm"
+      (ngSubmit)="trySignup(signupForm.value)"
+    >
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          id="displayName"
+          formControlName="displayName"
+          placeholder="Username"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Email"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+          placeholder="Confirm Password"
+        />
+      </mat-form-field>
+      <p style="color:red;">{{ errorMessage }}</p>
+      <button mat-button type="submit">Submit</button>
+    </form>
+    <br />
+    <button mat-stroked-button (click)="toggleLoginOrSignup()">
+      {{ toggleText }}
+    </button>
+    <br />
+    <div class="oAuth">
+      <button mat-icon-button (click)="googleSignIn()">
+        <fa-icon [icon]="faGoogle"></fa-icon>
+      </button>
+    </div>
+  </mat-card>
+</div>

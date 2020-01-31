@@ -1,0 +1,11 @@
+<button mat-icon-button (click)="toggleLight()">
+  <fa-icon [icon]="faLightbulb"></fa-icon>
+</button>
+<br />
+<mat-form-field>
+  <mat-label>Theme</mat-label>
+  <mat-select [(value)]="selected" (selectionChange)="changeTheme()">
+    <mat-option *ngFor="let theme of themes | keyvalue" class="option" value="{{theme.key}}">{{theme.key | titlecase}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<br />

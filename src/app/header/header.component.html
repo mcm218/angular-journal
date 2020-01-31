@@ -1,0 +1,17 @@
+<ul>
+  <li>
+    <a routerLink="/settings">
+      <fa-icon [icon]="faCog"></fa-icon>
+    </a>
+  </li>
+  <li *ngIf="authenticated">
+    <a routerLink="">
+      <fa-icon [icon]="faHome"></fa-icon>
+    </a>
+  </li>
+  <li *ngIf="!authenticated">
+    <a routerLink="/login">
+      <fa-icon [icon]="faHome"></fa-icon>
+    </a>
+  </li>
+</ul>
